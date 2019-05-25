@@ -1,0 +1,17 @@
+server:
+  port: 8017
+spring:
+  application:
+    name: zuulService
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8011/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: SERVICE-RIBBON
+    api-b:
+      path: /api-b/**
+      serviceId: FEIGNSERVICE
